@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gestor de Notas Privadas</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <main class="container py-4">
+      <h1 class="mb-3">Gestor de Notas Privadas</h1>
+      <p class="text-muted mb-4">Registro, login y CRUD de notas (solo notas del usuario autenticado).</p>
+
+      <div id="alertBox" class="alert d-none" role="alert"></div>
+
+      <section id="authSection" class="row g-3 mb-4">
+         <div class="col-12 col-lg-6">
+            <div class="card p-3 h-100">
+               <h2 class="h5">Registro</h2>
+               <form id="registerForm" class="d-grid gap-2">
+                  <input class="form-control" type="email" id="registerEmail" placeholder="Email" required>
+                  <input class="form-control" type="password" id="registerPassword" placeholder="Contraseña" minlength="6" required>
+                  <input class="form-control" type="password" id="registerConfirmPassword" placeholder="Confirmar contraseña" minlength="6" required>
+                  <button class="btn btn-primary" type="submit">Registrarme</button>
+               </form>
+            </div>
+         </div>
+         <div class="col-12 col-lg-6">
+            <div class="card p-3 h-100">
+               <h2 class="h5">Login</h2>
+               <form id="loginForm" class="d-grid gap-2">
+                  <input class="form-control" type="email" id="loginEmail" placeholder="Email" required>
+                  <input class="form-control" type="password" id="loginPassword" placeholder="Contraseña" required>
+                  <button class="btn btn-success" type="submit">Iniciar sesión</button>
+               </form>
+            </div>
+         </div>
+      </section>
+
+      <section id="notesSection" class="d-none">
+         <div class="d-flex align-items-center justify-content-between mb-3">
+            <h2 class="h5 m-0">Mis notas</h2>
+            <div class="d-flex align-items-center gap-2">
+               <span id="userEmail" class="badge text-bg-secondary"></span>
+               <button id="logoutBtn" class="btn btn-outline-danger btn-sm" type="button">Cerrar sesión</button>
+            </div>
+         </div>
+
+         <div class="card p-3 mb-3">
+            <h3 id="noteFormTitle" class="h6">Crear nota</h3>
+            <form id="noteForm" class="d-grid gap-2">
+               <input class="form-control" type="text" id="noteTitle" placeholder="Título" maxlength="120" required>
+               <textarea class="form-control" id="noteContent" rows="4" placeholder="Contenido" maxlength="5000" required></textarea>
+               <div class="d-flex gap-2">
+                  <button id="saveNoteBtn" class="btn btn-primary" type="submit">Guardar nota</button>
+                  <button id="cancelEditBtn" class="btn btn-outline-secondary d-none" type="button">Cancelar edición</button>
+               </div>
+            </form>
+         </div>
+
+         <div id="notesList" class="row g-3"></div>
+      </section>
+   </main>
+
+   <script src="config.js"></script>
+   <script src="script.js"></script>
+</body>
+</html>

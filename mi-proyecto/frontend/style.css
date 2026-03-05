@@ -1,0 +1,12 @@
+body {
+	background: #f8f9fa;
+}
+
+.card {
+	border: 1px solid #e5e7eb;
+}
+
+.note-card p {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
